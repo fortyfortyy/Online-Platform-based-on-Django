@@ -1,20 +1,25 @@
 from django.shortcuts import render
-from django.http import HttpRequest, HttpResponse
 from django.views import View
+from .models import Project
 
 
-class Projects(View):
+class ProjectsView(View):
     def get(self, request):
-        msg = "hello you are ob the project page"
-        return render(request, 'projects/projects.html', context={'msg': msg})
+        projects = Project.objects.all()
+        for project in projects:
+
+            print(project)
+            print("--------")
+        return render(request, 'projects/projects.html', context={'projects': projects})
 
     def post(self, request):
         pass
 
 
-class Project(View):
+class ProjectView(View):
     def get(self, request, pk):
-        return render(request, 'projects/single-project.html', context={'pk': pk})
+        projectObj = Project.objects.get(pk=pk)
+        return render(request, 'projects/single-project.html', context={'project': projectObj})
 
     def post(self, request):
         pass

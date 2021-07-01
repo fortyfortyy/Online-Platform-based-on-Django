@@ -12,14 +12,28 @@
     {% extends 'main.html' %}
 
     {% block content %}
+        <h1> Projects </h1>
 
-    {{ msg }}
-    <h1> Project template </h1>
-    <p> Lorem Ipsum is simpy asdasdasdasd ikujhasdla sodj kjkalskdl
-    asddasddddddddddddddddddd   qweqweqweqwewqeqwe
-        qqqweeqwe
-    qweeeeeeaslkndasaewqe
-    </p>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Project</th>
+                <th>Positive Votes </th>
+                <th>Votes</th>
+                <th></th>
+            </tr>
+            {% for project in projects %}
+                <tr>
+                    <td>{{ project.id }}</td>
+                    <td>{{ project }}</td>
+                    <td>{{ project.vote_ratio }}%</td>
+                    <td>{{ project.vote_total }}</td>
+                    <td>{{ project.created }}</td>
+                    <td><a href="{% url 'project' project.id %}">View</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+
     {% endblock content %}
 </body>
 </html>

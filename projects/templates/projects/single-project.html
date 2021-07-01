@@ -8,7 +8,16 @@
     {% extends 'main.html' %}
 
     {% block content %}
-    <h1> Single project template: {{ pk }} </h1>
+        <h2> Project name: {{ project }} </h2>
+        <hr>
+        {% if project.tags %}
+            {% for tag in project.tags.all %}
+                <span style="border:1px solid grey">{{ tag }}</span>
+            {% endfor %}
+        {% endif %}
+        <br>
+        <p> {{ project.description }}</p>
+        <p> go to <a href="{% url 'projects' %}"> main menu </a></p>
     {% endblock content %}
 </body>
 </html>
