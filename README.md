@@ -1,4 +1,4 @@
-# Online Platform for searching developers based on Django
+# Online Platform for searching developers. Project based on Django
 ```diff
 - # STILL IN PROGRESS 
 ```
