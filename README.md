@@ -1,4 +1,4 @@
-# Online Platform of Developers search based on Django
+# Online Platform for searching developers based on Django
 
 
 ## Basic Overview
