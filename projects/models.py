@@ -5,6 +5,7 @@ import uuid
 class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)    # Allow to create in database out this value and don't need to set description,
+    featured_image = models.ImageField(null=True, blank=True, default="default.jpg")
     demo_link = models.CharField(max_length=2000, null=True, blank=True)
     source_link = models.CharField(max_length=2000, null=True, blank=True)
     tags = models.ManyToManyField('Tag', blank=True)    # class Tag will be found even when its under the class Project
@@ -26,7 +27,7 @@ class Review(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     body = models.TextField(null=True, blank=True)
     value = models.CharField(max_length=200, choices=VOTE_TYPE)
-    created = models.DateTimeField(auto_now_add=True)  # When the project was added to db
+    created = models.DateTimeField(auto_now_add=True)  # Data created of review
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)
 
