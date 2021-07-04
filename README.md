@@ -1,6 +1,7 @@
-# Online Platform of Developers search based on Django
-
-
+# Online Platform for searching developers. Project based on Django
+```diff
+- # STILL IN PROGRESS 
+```
 ## Basic Overview
 Online platform where developers from around the world can create their own account and share their work with others
 
