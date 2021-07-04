@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from django.conf import settings    # Make access to the settings.py to have access to the MEDIA_ROOT and MEDIA_URL
-from django.conf.urls.static import static  # Help to create an url for a static file
+from django.conf.urls.static import static  # Create an url for a static file
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -15,7 +15,7 @@ class ProjectsView(View):
 
 class ProjectView(View):
     def get(self, request, pk):
-        projectObj = Project.objects.get(pk=pk)
+        projectObj = Project.objects.get(id=pk)
         return render(request, 'projects/single-project.html', context={'project': projectObj})
 
     def post(self, request):

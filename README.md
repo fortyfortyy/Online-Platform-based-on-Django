@@ -15,6 +15,7 @@ Online platform where developers from around the world can create their own acco
 * Django
 * Postgres
 * Django REST Framework
+* Mumble UI
 
 
 

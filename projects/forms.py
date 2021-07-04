@@ -1,4 +1,5 @@
 from django.forms import ModelForm
+from django import forms
 from .models import Project
 
 
@@ -10,3 +11,19 @@ class ProjectForm(ModelForm):  # Django creates a form based on Project module
 
         # Create automatically generated form by attributes in db
         fields = ['title', 'description', 'featured_image', 'demo_link', 'source_link', 'tags']
+
+        # Add attributes to specific/each field
+        widgets = {
+            'tags': forms.CheckboxSelectMultiple(),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(ProjectForm, self).__init__(*args, **kwargs)
+
+        for name, field in self.fields.items():
+            field.widget.attrs.update({'class': 'input'})
+
+        # Below second option to write instead of above for loop
+        # self.fields['title'].widget.attrs.update({'class': 'input', 'placeholder': 'Add title'})
+        #
+        # self.fields['description'].widget.attrs.update({'class': 'input', 'placeholder': 'Add title'}) etc...
