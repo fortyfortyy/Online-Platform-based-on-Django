@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # Adding my apps' settings
     'projects.apps.ProjectsConfig',
+    'users.apps.UsersConfig',
 
 ]
 
